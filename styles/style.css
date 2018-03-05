@@ -2,7 +2,9 @@ body {
   background: url(../img/Background.png);
   font: 12px Tahoma, sans-serif;
   margin: 0;
+  display: block;
 }
+
 
 header {
   padding: 20px 20px 0;
@@ -33,7 +35,7 @@ header a {
 }
 
 nav {
-
+  font: 14px 'Oswald', sans-serif;
   margin-top: 20px;
 }
 
@@ -42,13 +44,16 @@ nav a {
 }
 
 nav ul {
+
+  display: flex;
+  justify-content: space-between;
 	margin: 0;
 	padding: 0;
 }
 
+
 nav li {
 	list-style-position: inside;
-	font: 14px 'Oswald', sans-serif;
 	padding: 10px;
 }
 
@@ -71,10 +76,199 @@ nav li {
 	color: #c3c3c3;
 }
 
+ #pull {
+  display: none;
+  font-size: 14px;
+  color: #c3c3c3;
+  padding: 10px 10px;
+}
+
+@media screen and (max-width: 991px) {
+  .top-menu li {
+    padding: 10px 26px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .top-menu li {
+    padding: 7px 20px;
+  }
+
+  .top-menu a {
+    font-size: 12px;
+}
+
+}
+
+@media screen and (max-width: 600px) {
+
+  nav {
+    background-color: #595959;
+    height: auto;
+  }
+  nav ul {
+    width: 100%;
+    display: block;
+    height: auto;
+  }
+
+  nav li {
+    text-align: center;
+    width: 40%;
+    position: relative;
+  }
+
+    .top-menu li.active {
+      border: 50%;
+    }
+
+  .top-menu a {
+        width: 100%;
+        font-size:14px;
+    }
+
+
+}
+
+@media only screen and (max-width : 480px) {
+
+  .contacts a {
+    display: none;
+  }
+
+  nav ul {
+        display: none;
+        height: auto;
+    }
+
+  nav a#pull {
+      display: block;
+      background-color: #595959;
+      width: 100%;
+      position: relative;
+  }
+
+  nav a#pull:after {
+        content:"";
+        background: url('../img/side-menu.png') no-repeat;
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        display: inline-block;
+        left: 45px;
+
+    }
+
+}
+
+@media only screen and (max-width : 320px) {
+    nav li {
+        display: block;
+        float: none;
+        width: 100%;
+    }
+
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+
 #banner {
   margin: 30px 30px 0 30px;
 
+  /* background: url(../img/Banner.png) no-repeat; */
+
 }
+
+.transition {
+  transition: 1s;
+}
+
+#banner img {
+  /* transition: 0.3s; */
+  /* transition: width 1s, height 1s; */
+
+
+}
+
+#banner:hover {
+  cursor: zoom-in;
+}
+
+#zoomable-content {
+  display: none;
+  position: fixed;
+  overflow: auto;
+  padding-top: 60px;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0%;
+  margin: auto;
+  z-index: 100;
+   background-color: rgba(0,0,0,0.8);
+}
+
+
+
+#zoomable-image {
+  margin: auto;
+  height: 80%;
+  display: block;
+  width: 80%;
+  cursor: zoom-out;
+      /* max-width: 700px; */
+
+}
+
+.animation-open {
+  animation-name: zoom-in;
+  animation-duration: 0.6s;
+}
+
+.animation-close {
+  animation-name: zoom-out;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom-in {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom-in {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+@-webkit-keyframes zoom-out {
+    from {-webkit-transform:scale(1)}
+    to {-webkit-transform:scale(0)}
+}
+
+@keyframes zoom-out {
+    from {transform:scale(1)}
+    to {transform:scale(0)}
+}
+
+.hidden {
+  /* display: none !important;
+  /* animation-name: zoom;
+  animation-duration: 0.6s; */
+  /* animation-name: zoom-out;
+  animation-duration: 0.6s; */
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0s linear 0.3s;
+}
+
+/* .banner-img {
+  background: url(../img/Banner.png) no-repeat;
+} */
+
 
 .banner-text {
   display: flex;
@@ -98,12 +292,74 @@ nav li {
   padding: 0 10px;
 }
 
+@media screen and (max-width: 991px) {
+
+  .banner-text {
+    margin-top: -170px;
+  }
+
+  .banner-heading-2 {
+    width: 350px;
+  }
+
+  .banner-heading-2 h1 {
+    font-size: 22px;
+
+  }
+
+  .banner-heading-1 h3 {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .banner-text {
+    margin-top: -140px;
+  }
+
+  .banner-heading-2 {
+    width: 300px;
+  }
+
+  .banner-heading-2 h1 {
+    font-size: 18px;
+  }
+
+  .banner-heading-1 h3 {
+    font-size: 10px;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+
+  .banner-text {
+    margin-top: -110px;
+  }
+
+  .banner-heading-2 {
+    width: 200px;
+  }
+
+  .banner-heading-2 h1 {
+    font-size: 12px;
+  }
+
+  .banner-heading-1 h3 {
+    font-size: 8px;
+  }
+
+}
+
+
+
 .content-block {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  max-width: 250px;
+  max-width: 28%;
   margin: 0 20px;
 }
 
@@ -148,8 +404,43 @@ button img {
     margin-top: 150px;
 }
 
+@media screen and (max-width: 991px) {
+
+  .content {
+    margin-top: 120px;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .content {
+    margin-top: 90px;
+
+  }
+
+  .content-block {
+    max-width: 40%;
+  }
+
+  .content-block:nth-child(n+3) {
+    margin-top: 40px;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+
+  .content {
+    margin-top: 60px;
+  }
+
+  .content-block
+
+}
 
 .projects {
+  margin: 0 auto;
   margin-top: 30px;
   display: flex;
   width: 100%;
@@ -174,6 +465,27 @@ button img {
 .projects-block img {
   width: 100px;
   height: 100px;
+}
+
+@media screen and (max-width: 768px) {
+
+  .projects figure {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+  .projects figure + figure {
+      margin-left: 15px;
+  }
+
+  .projects figure {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
 }
 
 .content-heading {
@@ -209,6 +521,19 @@ button img {
 .clients img {
   width: 50px;
   height: 50px;
+}
+
+@media screen and (max-width: 480px)  {
+  .clients figure + figure {
+      margin-left: 5px;
+  }
+
+  .clients figure {
+    margin-left: 15px;
+    margin-right: 15px;
+
+  }
+
 }
 
 footer {
@@ -256,6 +581,12 @@ footer a {
 
 #sitemap a:hover {
 	text-decoration: underline;
+}
+
+@media screen and (max-width: 480px) {
+  #sitemap ul:nth-child(n+2) {
+      display: none;
+  }
 }
 
 #social {
